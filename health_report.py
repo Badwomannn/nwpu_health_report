@@ -31,7 +31,9 @@ browser.get('https://yqtb.nwpu.edu.cn/wx/ry/jrsb_xs.jsp')
 
 browser.execute_script('javascript:go_sub();')
 
-browser.find_element(By.XPATH, "//i[@class='weui-icon-checked']").click() # 已核实 
+
+browser.find_element(By.XPATH, "//*[@class='weui-icon-checked']").click() # 已核实
+#browser.find_element(By.XPATH, "//i[@class='weui-icon-checked']").click() # 已核实 
 browser.execute_script('javascript:save();')
 time.sleep(1)
     
