@@ -33,7 +33,9 @@ browser.refresh()
 time.sleep(1)
 
 browser.find_element(By.LINK_TEXT, "提交填报信息").click() # 提交填报信息
-browser.find_element(By.XPATH, "//i[@class='weui-icon-checked']").click() # 已核实 
+qrxx = browser.find_element(By.CSS_SELECTOR, "#qrxx_div > div.weui-cells.weui-cells_form > div.weui-cells.weui-cells_checkbox > label > div.weui-cell__hd > i") # 核实按钮
+hidden_qrxx = browser.find_element(By.CSS_SELECTOR, "#qrxx_div > div.weui-cells.weui-cells_form > div.weui-cells.weui-cells_checkbox > label") # 核实按钮上级
+ActionChains(browser).move_to_element(qrxx).click(hidden_qrxx).perform() # 事件链点击
 browser.find_element(By.ID, "save_div").click() # 确认提交
 time.sleep(1)
     
