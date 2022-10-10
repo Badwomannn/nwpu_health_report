@@ -31,8 +31,8 @@ browser.find_element(By.CSS_SELECTOR, "#fm1 > div:nth-child(4) > div > input.el-
 time.sleep(1)
 
 browser.get('https://yqtb.nwpu.edu.cn/wx/ry/jrsb_xs.jsp')
-browser.refresh()
-time.sleep(1)
+#browser.refresh()
+time.sleep(5)
 
 browser.find_element(By.LINK_TEXT, "提交填报信息").click() # 提交填报信息
 
