@@ -10,12 +10,6 @@ import os
 USERNAME = os.environ["USERNAME"]
 PASSWORD = os.environ["PASSWORD"]
 
-#chrome_options = Options()
-#chrome_options.add_argument('--headless')
-#chrome_options.add_argument('--no-sandbox')
-#chrome_options.add_argument('--disable-dev-shm-usage')
-#browser = webdriver.Chrome('/usr/bin/chromedriver', options=chrome_options)
-
 chrome_service = Service("/usr/bin/chromedriver")
 chrome_options = Options()
 chrome_options.add_argument('--headless')
@@ -36,8 +30,6 @@ password.send_keys(PASSWORD)
 browser.find_element(By.CSS_SELECTOR, "#fm1 > div:nth-child(4) > div > input.el-button.el-button--primary.el-button--medium.is-round").click()
 time.sleep(1)
 
-browser.get('https://yqtb.nwpu.edu.cn/wx/xg/yz-mobile/index.jsp')
-browser.refresh()
 browser.get('https://yqtb.nwpu.edu.cn/wx/ry/jrsb_xs.jsp')
 browser.refresh()
 time.sleep(1)
