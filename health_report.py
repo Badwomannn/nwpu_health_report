@@ -32,7 +32,7 @@ browser.find_element(By.CSS_SELECTOR, "#fm1 > div:nth-child(4) > div > input.el-
 time.sleep(1)
 
 def page_is_loaded(browser):
-    return browser.find_element_by_tag_name("body") != None
+    return browser.find_element(By.TAG_NAME, "body") != None
 
 browser.get('https://yqtb.nwpu.edu.cn/wx/ry/jrsb_xs.jsp')
 wait = ui.WebDriverWait(browser, 10)
