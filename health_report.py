@@ -30,9 +30,12 @@ password.send_keys(PASSWORD)
 browser.find_element(By.CSS_SELECTOR, "#fm1 > div:nth-child(4) > div > input.el-button.el-button--primary.el-button--medium.is-round").click()
 time.sleep(1)
 
+def page_is_loaded(driver):
+    return driver.find_element_by_tag_name("body") != None
+
 browser.get('https://yqtb.nwpu.edu.cn/wx/ry/jrsb_xs.jsp')
-#browser.refresh()
-time.sleep(5)
+wait = ui.WebDriverWait(browser, 10)
+wait.until(page_is_loaded)
 
 browser.find_element(By.LINK_TEXT, "提交填报信息").click() # 提交填报信息
 
