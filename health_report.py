@@ -1,7 +1,6 @@
 import selenium
 from selenium import webdriver
 from selenium.webdriver.common.by import By
-from selenium.webdriver.support import ui
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.action_chains import ActionChains
@@ -29,14 +28,8 @@ username.send_keys(USERNAME)
 password = browser.find_element(By.ID, "password")
 password.send_keys(PASSWORD)
 browser.find_element(By.CSS_SELECTOR, "#fm1 > div:nth-child(4) > div > input.el-button.el-button--primary.el-button--medium.is-round").click()
-time.sleep(1)
-
-def page_is_loaded(browser):
-    return browser.find_element(By.TAG_NAME, "body") != None
-
-browser.get('https://yqtb.nwpu.edu.cn/wx/ry/jrsb_xs.jsp')
-wait = ui.WebDriverWait(browser, 10)
-wait.until(page_is_loaded)
+time.sleep(5)
+browser.refresh()
 
 browser.find_element(By.LINK_TEXT, "提交填报信息").click() # 提交填报信息
 
