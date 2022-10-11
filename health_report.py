@@ -31,6 +31,10 @@ browser.find_element(By.CSS_SELECTOR, "#fm1 > div:nth-child(4) > div > input.el-
 time.sleep(5)
 browser.refresh()
 
+browser.get('https://yqtb.nwpu.edu.cn/wx/ry/jrsb_xs.jsp')
+browser.refresh()
+time.sleep(5)
+print('当前浏览器地址为：.{0}'.format(browser.current_url))
 browser.find_element(By.LINK_TEXT, "提交填报信息").click() # 提交填报信息
 
 qrxx = browser.find_element(By.CSS_SELECTOR, "#qrxx_div > div.weui-cells.weui-cells_form > div.weui-cells.weui-cells_checkbox > label > div.weui-cell__hd > i") # 核实按钮
