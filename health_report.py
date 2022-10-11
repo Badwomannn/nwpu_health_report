@@ -21,15 +21,21 @@ browser = webdriver.Chrome(service = chrome_service, options=chrome_options)
 browser.get('https://uis.nwpu.edu.cn/cas/login?service=https://ecampus.nwpu.edu.cn/')
 browser.maximize_window()
 
-# login
-browser.find_element(By.CSS_SELECTOR, "#vue_main > div:nth-child(2) > div.sw-login.sw-cloud-platform-nwpu-login > div > div:nth-child(2) > div:nth-child(3) > div > div > div:nth-child(1) > ul > li:nth-child(3)").click()
-username = browser.find_element(By.ID, "username")
-username.send_keys(USERNAME)
-password = browser.find_element(By.ID, "password")
-password.send_keys(PASSWORD)
-browser.find_element(By.CSS_SELECTOR, "#fm1 > div:nth-child(4) > div > input.el-button.el-button--primary.el-button--medium.is-round").click()
-time.sleep(5)
-browser.refresh()
+#login
+url = browser.current_url[0:33]
+while(url == "https://uis.nwpu.edu.cn/cas/login"):
+    browser.find_element(By.CSS_SELECTOR, "#vue_main > div:nth-child(2) > div.sw-login.sw-cloud-platform-nwpu-login > div > div:nth-child(2) > div:nth-child(3) > div > div > div:nth-child(1) > ul > li:nth-child(3)").click()
+    username = browser.find_element(By.ID, "username")
+    stu_number = '2021262833'
+    username.send_keys(stu_number)
+    stu_password = 'wc15664907920.'
+    password = browser.find_element(By.ID, "password")
+    password.send_keys(stu_password)
+    browser.find_element(By.CSS_SELECTOR, "#fm1 > div:nth-child(4) > div > input.el-button.el-button--primary.el-button--medium.is-round").click()
+    time.sleep(5)
+    browser.refresh()
+    url = browser.current_url[0:33]
+    print(url)
 
 browser.get('https://yqtb.nwpu.edu.cn/wx/ry/jrsb_xs.jsp')
 browser.refresh()
